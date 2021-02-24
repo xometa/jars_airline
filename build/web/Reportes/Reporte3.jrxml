@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff202597-b798-4807-8837-d76b01e2a750">
+	<property name="ireport.zoom" value="0.909090909090913"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select 
+usu.nombreusuario,
+usu.sexo,
+usu.tipo,
+usu.nombre,
+usu.apellido,
+count(idreserva) as total
+from 
+usuario as usu
+inner join reserva as res on res.idusuario = usu.idusuario
+where usu.tipo='Empleado'
+group by usu.nombreusuario, usu.sexo, usu.tipo, usu.nombre, usu.apellido]]>
+	</queryString>
+	<field name="nombreusuario" class="java.lang.String"/>
+	<field name="sexo" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="total" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76" splitType="Stretch">
+			<rectangle>
+				<reportElement x="6" y="3" width="395" height="53" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="c7a794be-b3db-4da8-89ce-a93759a0a126"/>
+			</rectangle>
+			<image>
+				<reportElement x="426" y="3" width="424" height="65" uuid="3e3eb991-9d33-4a69-a290-c9e9cdcda65b"/>
+				<imageExpression><![CDATA["C:\\Users\\Gerardo\\Videos\\Proyecto Aerolinea\\Aerolinea\\web\\img\\logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="6" y="15" width="422" height="49" forecolor="#FFFFFF" uuid="59807142-3b24-48ef-8f4b-259ad00f7a6b"/>
+				<textElement>
+					<font fontName="Century Gothic" size="24" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[RESERVAS POR EMPLEADO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="26" y="52" width="375" height="22" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="2ee823d2-5525-4b17-93e4-f22f6f9b28f9"/>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="12" width="551" height="1" uuid="6ce1263a-5872-4000-b345-a84a7b62566d"/>
+			</line>
+			<staticText>
+				<reportElement x="267" y="0" width="100" height="20" uuid="3d9fa3b7-564b-4beb-a7f6-c5b80ae9f8d0"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="0" width="100" height="20" uuid="3e58c0e9-b277-4f21-b86b-1129410e929e"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="0" width="100" height="20" uuid="e486b5e0-aeeb-4e13-a728-a560e92feabd"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="0" width="100" height="20" uuid="88d3ac17-d1ee-435a-84e9-793fd8c0b7eb"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="266" y="0" width="100" height="20" uuid="94ada332-821f-4c10-bfca-a8120bcbb7e9"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreusuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="0" width="100" height="20" uuid="2e9557df-b312-4818-a336-b3433e86c821"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="0" width="100" height="20" uuid="9628e09f-1d36-4595-9769-d7b53c7e614f"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="0" width="100" height="20" uuid="01739a8e-adf5-4a48-912b-dffbf024b62f"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="7b85a208-d6ea-4539-9fb3-6e4e096f37c8"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="5" width="63" height="20" uuid="581cf48e-b541-4d84-b9fa-aaf52b47c8bc"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pág. "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="287" y="5" width="40" height="20" uuid="2092c5c0-66db-465b-a514-7b319df2c484"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="200" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement x="0" y="0" width="555" height="200" uuid="06b28d66-964a-45d8-8dbc-2f8fd2ab71f2"/>
+					<chartTitle>
+						<titleExpression><![CDATA["Reservas por empleado"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{nombreusuario}]]></keyExpression>
+					<valueExpression><![CDATA[$F{total}]]></valueExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

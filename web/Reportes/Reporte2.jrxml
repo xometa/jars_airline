@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff202597-b798-4807-8837-d76b01e2a750">
+	<property name="ireport.zoom" value="0.9090909090909105"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select 
+emp.nombreempresa as "Empresa",
+emp.telefono as "Teléfono",
+emp.ruc as "RUC",
+av.nombre as "Avión"
+from empresa as emp
+inner join avion as av on av.idempresa = emp.idempresa]]>
+	</queryString>
+	<field name="Empresa" class="java.lang.String"/>
+	<field name="Teléfono" class="java.lang.String"/>
+	<field name="RUC" class="java.lang.String"/>
+	<field name="Avión" class="java.lang.String"/>
+	<group name="Empresa">
+		<groupExpression><![CDATA[$F{Empresa}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<textField>
+					<reportElement x="14" y="1" width="100" height="20" forecolor="#009999" uuid="f41d5606-1c25-40de-b9f9-5245e0a19ef3"/>
+					<textElement>
+						<font fontName="Century Gothic" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Empresa}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76" splitType="Stretch">
+			<rectangle>
+				<reportElement x="8" y="2" width="369" height="53" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="152b7fc3-1266-4d5b-8ce5-060da8a748e5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="28" y="51" width="375" height="22" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="7b92565f-c98a-4818-880c-c790ee3c155b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="11" width="418" height="48" forecolor="#FFFFFF" uuid="7a23de14-a760-42b5-a1ab-40412aac3d66"/>
+				<textElement>
+					<font fontName="Century Gothic" size="24" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[EMPRESAS PROVEEDORAS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="428" y="2" width="424" height="65" uuid="41535c8d-04b7-4d5a-ba0b-255d511c9db7"/>
+				<imageExpression><![CDATA["C:\\Users\\Gerardo\\Videos\\Proyecto Aerolinea\\Aerolinea\\web\\img\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement x="4" y="20" width="551" height="1" uuid="6ce1263a-5872-4000-b345-a84a7b62566d"/>
+			</line>
+			<staticText>
+				<reportElement x="14" y="1" width="100" height="20" uuid="dfcdbd11-912e-4cbf-88b9-ed7959d8d134"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="1" width="100" height="20" uuid="f0883b68-2be8-44c7-8d70-eb0bddca1028"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="299" y="1" width="100" height="20" uuid="6d0ddc98-3f31-471e-a012-f5d680a92d06"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="1" width="100" height="20" uuid="6ee3473d-305a-4023-a538-75054d1d84ad"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avión]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="167" y="3" width="100" height="20" uuid="47fb913d-51fa-471c-992e-33e2d44645fc"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Teléfono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="3" width="100" height="20" uuid="cc0b1a37-9c89-41f2-a698-cf94133a013f"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RUC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="3" width="100" height="20" uuid="0dd7424e-51f6-4c4d-8034-5ae82dda3de1"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Avión}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="7b85a208-d6ea-4539-9fb3-6e4e096f37c8"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="5" width="63" height="20" uuid="581cf48e-b541-4d84-b9fa-aaf52b47c8bc"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pág. "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="287" y="5" width="40" height="20" uuid="2092c5c0-66db-465b-a514-7b319df2c484"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

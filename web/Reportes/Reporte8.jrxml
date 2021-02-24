@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff202597-b798-4807-8837-d76b01e2a750">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select 
+av.nombre,
+av.modelo,
+emp.nombreempresa,
+av.capacidad,
+av.estado,
+av.numserie
+from avion as av
+inner join empresa as emp on emp.idempresa = av.idempresa]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="modelo" class="java.lang.String"/>
+	<field name="nombreempresa" class="java.lang.String"/>
+	<field name="capacidad" class="java.lang.Integer"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="numserie" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<image>
+				<reportElement x="430" y="10" width="424" height="65" uuid="8fae0996-a594-4a26-ad2b-935b88ee13ec"/>
+				<imageExpression><![CDATA["C:\\Users\\Gerardo\\Videos\\Proyecto Aerolinea\\Aerolinea\\web\\img\\logo.jpg"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="30" y="59" width="349" height="16" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="474ec05c-c2e7-4c0f-8222-6cf9b797685f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="10" y="10" width="369" height="53" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="8e6d6b3b-af85-4104-9922-e193506ccc97"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="21" y="22" width="350" height="31" forecolor="#FFFFFF" uuid="bafeea21-eaf0-4184-9b0b-2763cb169f59"/>
+				<textElement>
+					<font fontName="Century Gothic" size="24" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[CATÁLOGO DE AVIONES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="12" width="551" height="1" uuid="6ce1263a-5872-4000-b345-a84a7b62566d"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="0" width="77" height="20" uuid="2112882e-5db4-4316-afd8-2074c74f2f81"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="0" width="70" height="20" uuid="6d2d2044-6111-4f4b-9722-1bd7c45f6d87"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="0" width="100" height="20" uuid="e373cea1-f283-4d7a-aba1-6994705a3abd"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="0" width="77" height="20" uuid="0109fea6-3064-4ebe-8cf3-b2e7d4bde3e8"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Capacidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="449" y="0" width="100" height="20" uuid="7cb6dc65-91f8-4f5e-800f-55f371c9537c"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Num Serie]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="1" width="77" height="20" uuid="d276bf41-1a45-4d8d-9f78-a741d7c324d5"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="1" width="70" height="20" uuid="875f336f-a270-47a8-8243-ae55e7b68cb2"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="216" y="1" width="100" height="20" uuid="8b055a60-07e2-451b-9fef-ee511002a88c"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreempresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="1" width="77" height="20" uuid="ef5852cc-35c3-4945-bb77-07fdd4086af2"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{capacidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="1" width="100" height="20" uuid="98df934e-3929-4ae2-b18f-7c9d84b4aaf3"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numserie}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="7b85a208-d6ea-4539-9fb3-6e4e096f37c8"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="5" width="63" height="20" uuid="581cf48e-b541-4d84-b9fa-aaf52b47c8bc"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pág. "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="287" y="5" width="40" height="20" uuid="2092c5c0-66db-465b-a514-7b319df2c484"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

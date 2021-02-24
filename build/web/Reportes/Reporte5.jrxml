@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff202597-b798-4807-8837-d76b01e2a750">
+	<property name="ireport.zoom" value="1.1000000000000052"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="estadoreserva" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select
+res.idreserva,
+res.fechareserva,
+res.clase,
+res.fecharegreso,
+pas.nombre,
+pas.apellido
+from
+reserva as res
+inner join pasajero as pas on pas.idpasajero = res.idpasajero
+WHERE res.estadoreserva=$P{estadoreserva}]]>
+	</queryString>
+	<field name="idreserva" class="java.lang.Integer"/>
+	<field name="fechareserva" class="java.sql.Date"/>
+	<field name="clase" class="java.lang.String"/>
+	<field name="fecharegreso" class="java.sql.Date"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<rectangle>
+				<reportElement x="15" y="11" width="369" height="53" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="ffdd796e-81dc-4c69-9821-1be05587d2e9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="35" y="50" width="349" height="16" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="3d9ef791-eae2-417d-a897-1dcc774d3d49"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="20" y="19" width="167" height="31" forecolor="#FFFFFF" uuid="214f31c7-3aa5-4dc9-bf33-6b087f2a7924"/>
+				<textElement>
+					<font fontName="Century Gothic" size="24" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[RESERVAS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="435" y="11" width="424" height="65" uuid="cea775fd-cdeb-4342-9488-a9d8d77e3ee4"/>
+				<imageExpression><![CDATA["C:\\Users\\Gerardo\\Videos\\Proyecto Aerolinea\\Aerolinea\\web\\img\\logo.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="159" y="19" width="211" height="34" forecolor="#FFFFFF" uuid="d7c84172-20fa-4a6b-a0ca-caaca42d49be"/>
+				<textElement>
+					<font fontName="Century Gothic" size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{estadoreserva}.toUpperCase()+"S"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="12" width="551" height="1" uuid="6ce1263a-5872-4000-b345-a84a7b62566d"/>
+			</line>
+			<staticText>
+				<reportElement x="12" y="1" width="60" height="19" uuid="0f836994-404b-4a2f-ae28-1c7ba4532a56"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="0" width="100" height="20" uuid="163467c4-7fdd-4a5b-8bf1-3d1182b28def"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de regreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="0" width="84" height="20" uuid="8718fa14-ee63-491f-bee0-b34f44f89b0e"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="0" width="100" height="20" uuid="ec6f8f91-9eef-41cf-a684-24f913acc1ab"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de reserva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="0" width="76" height="20" uuid="092340aa-3c48-4e25-ad48-6ab3c6493f6a"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="489" y="0" width="62" height="20" uuid="eb5ea7a5-17bf-4c1c-aa32-32afcff73e62"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="1" width="71" height="20" uuid="00292cd2-22ff-4970-b1a5-c2203b6fdef7"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idreserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="83" y="1" width="100" height="20" uuid="476386d7-f9f2-46ea-a69f-e4c1eccb1121"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechareserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="1" width="75" height="20" uuid="f131e82f-b620-4d4c-9ff5-29ed249e46ec"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clase}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="274" y="1" width="100" height="20" uuid="fc80b0ce-05d5-4ff7-a841-3811a24f5e2e"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecharegreso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="1" width="85" height="20" uuid="3fc23c2c-2162-4f7b-b3ff-612c97aa5184"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="1" width="60" height="20" uuid="870540c1-13a8-4cc7-ae42-27685a362264"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="7b85a208-d6ea-4539-9fb3-6e4e096f37c8"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="5" width="63" height="20" uuid="581cf48e-b541-4d84-b9fa-aaf52b47c8bc"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pág. "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="287" y="5" width="40" height="20" uuid="2092c5c0-66db-465b-a514-7b319df2c484"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

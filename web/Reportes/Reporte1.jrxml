@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff202597-b798-4807-8837-d76b01e2a750">
+	<property name="ireport.zoom" value="0.909090909090913"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="7"/>
+	<queryString>
+		<![CDATA[select 
+ori.pais as "Pais de salida",
+ori.nombreaeropuerto as "Aeropuerto de salida",
+dest.pais as "País destino",
+dest.nombreaeropuerto as "Aeropuerto destino",
+vu.horasalida as "Hora salida",
+vu.horallegada as "Hora llegada",
+vu.costo as "Costo",
+avi.nombre as "Avión"
+from vuelo as vu
+inner join origen as ori on vu.idorigen = ori.idorigen
+inner join avion as avi on avi.idavion = vu.idavion
+inner join destino as dest on dest.iddestino = vu.iddestino
+where vu.fechasalida=current_date]]>
+	</queryString>
+	<field name="Pais de salida" class="java.lang.String"/>
+	<field name="Aeropuerto de salida" class="java.lang.String"/>
+	<field name="País destino" class="java.lang.String"/>
+	<field name="Aeropuerto destino" class="java.lang.String"/>
+	<field name="Hora salida" class="java.lang.String"/>
+	<field name="Hora llegada" class="java.lang.String"/>
+	<field name="Costo" class="java.math.BigDecimal"/>
+	<field name="Avión" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76" splitType="Stretch">
+			<rectangle>
+				<reportElement x="24" y="53" width="375" height="22" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="ef6d4259-ee43-49d1-9532-a776ae1cc3e8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="4" y="4" width="369" height="53" forecolor="#FFFFFF" backcolor="#CCCCCC" uuid="0372cc61-627c-481c-bf0b-80f891b3302b"/>
+			</rectangle>
+			<image>
+				<reportElement x="424" y="4" width="424" height="65" uuid="437152fd-9cbb-4bd1-9372-131c51e1ff61"/>
+				<imageExpression><![CDATA["C:\\Users\\Gerardo\\Videos\\Proyecto Aerolinea\\Aerolinea\\web\\img\\logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="85" y="16" width="215" height="31" forecolor="#FFFFFF" uuid="9e49d546-fcb5-4bae-ada9-09528eb14076"/>
+				<textElement>
+					<font fontName="Century Gothic" size="24" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[VUELOS DEL DÍA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement x="4" y="20" width="551" height="1" uuid="6ce1263a-5872-4000-b345-a84a7b62566d"/>
+			</line>
+			<staticText>
+				<reportElement x="-1" y="1" width="72" height="20" uuid="daacb6ad-e734-4f6e-8759-bfbb68ee809b"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pais de salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="1" width="71" height="20" uuid="e2e52242-6332-47c6-afb8-51383b0ad847"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[País destino]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="1" width="100" height="20" uuid="efabad3d-a3ce-468e-8fb0-b36550cb4483"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aeropuerto destino]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="1" width="60" height="20" uuid="07032fe5-f2cc-4feb-99ef-2fdd93a4ad69"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="1" width="53" height="20" uuid="636c2279-a1b6-4bf9-a9c8-b53b3d28550a"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Costo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="77" y="1" width="100" height="20" uuid="a6d24d51-b04e-4d49-ac20-3ea9e7b4fd45"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aeropuerto de salida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="479" y="1" width="76" height="20" uuid="0aca9e31-474b-4e74-a624-238f6976e730"/>
+				<textElement>
+					<font fontName="Century Gothic" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avión]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="-1" y="3" width="72" height="20" uuid="17cf93fa-448d-49ac-8029-022210e85674"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Pais de salida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="3" width="100" height="20" uuid="61c4f4a9-ca0e-4517-978a-0f69500cfa50"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Aeropuerto de salida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="3" width="71" height="20" uuid="5a791217-f3d2-446b-917a-54826112da8a"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{País destino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="3" width="87" height="20" uuid="2b4b5563-9ba2-451b-9726-90d4ff3adf28"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Aeropuerto destino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="3" width="52" height="20" uuid="3d6d250e-2a96-485a-b7fb-4a45fc910fd0"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Hora salida}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$####.00">
+				<reportElement x="418" y="3" width="53" height="20" uuid="c054819d-d38f-490b-9da8-41364c274e1b"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Costo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="3" width="76" height="20" uuid="96873602-8d9e-4e88-88cc-0d995387bd1b"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Avión}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="7b85a208-d6ea-4539-9fb3-6e4e096f37c8"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="5" width="63" height="20" uuid="581cf48e-b541-4d84-b9fa-aaf52b47c8bc"/>
+				<textElement textAlignment="Right">
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pág. "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="287" y="5" width="40" height="20" uuid="2092c5c0-66db-465b-a514-7b319df2c484"/>
+				<textElement>
+					<font fontName="Century Gothic"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
